@@ -41,6 +41,7 @@ export function Content() {
     axios.get(`http://localhost:3000/days/${id}.json`).then((response) => {
       console.log(response.data);
       setDay(response.data);
+      localStorage.setItem("dayId", id);
     });
   };
 
@@ -87,7 +88,7 @@ export function Content() {
           path="/program"
           element={<ProgramShow program={program} onShowDay={handleShowDay} onCreateDay={handleCreateDay} />}
         />
-        <Route path="/day" element={<DayShow day={day} onShowModal={handleModalShow} />} />
+        <Route path="/day" element={<DayShow day={day} onShowDay={handleShowDay} onShowModal={handleModalShow} />} />
         <Route path="/exercises" element={<ExerciseIndex exercises={exercises} />} />
       </Routes>
 

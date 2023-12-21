@@ -1,5 +1,15 @@
+import { useEffect } from "react";
+
 /* eslint-disable react/prop-types */
 export function DayShow(props) {
+  useEffect(() => {
+    const storedDayId = localStorage.getItem("dayId");
+
+    if (storedDayId) {
+      props.onShowDay(storedDayId);
+    }
+  }, [props.day]);
+
   return (
     <div>
       <h1>Day: {props.day.name}</h1>
