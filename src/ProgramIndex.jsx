@@ -13,6 +13,14 @@ export function ProgramIndex(props) {
     goToProgram();
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const params = new FormData(event.target);
+    props.onCreateProgram(params);
+    event.target.reset();
+    window.location.href = "/program";
+  };
+
   return (
     <div>
       <h1>All Programs</h1>
@@ -36,7 +44,10 @@ export function ProgramIndex(props) {
           </div>
         ))}
       </div>
-      <button>Create New Program</button>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="name" />
+        <button type="submit">Create New Program</button>
+      </form>
     </div>
   );
 }

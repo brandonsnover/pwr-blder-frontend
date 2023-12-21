@@ -31,12 +31,34 @@ export function Content() {
     });
   };
 
+  const handleCreateProgram = (params) => {
+    axios.post("http://localhost:3000/programs.json", params).then((response) => {
+      console.log(response.data);
+      setProgram(response.data);
+    });
+  };
+
+  const handleCreateDay = (params) => {
+    axios.post("http://localhost:3000/days.json", params).then((response) => {
+      console.log(response.data);
+      setDay(response.data);
+    });
+  };
+
   useEffect(handleIndexPrograms, []);
   return (
     <div>
       <Routes>
-        <Route path="/" element={<ProgramIndex programs={programs} onShowProgram={handleShowProgram} />} />
-        <Route path="/program" element={<ProgramShow program={program} onShowDay={handleShowDay} />} />
+        <Route
+          path="/"
+          element={
+            <ProgramIndex programs={programs} onShowProgram={handleShowProgram} onCreateProgram={handleCreateProgram} />
+          }
+        />
+        <Route
+          path="/program"
+          element={<ProgramShow program={program} onShowDay={handleShowDay} onCreateDay={handleCreateDay} />}
+        />
         <Route path="/day" element={<DayShow day={day} />} />
       </Routes>
     </div>

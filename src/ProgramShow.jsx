@@ -13,6 +13,21 @@ export function ProgramShow(props) {
     goToDay();
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const name = formData.get("name");
+    const program_id = props.program.id;
+    if (name && program_id) {
+      const params = { name, program_id };
+      props.onCreateDay(params);
+      event.target.reset();
+      navigate("/day");
+    } else {
+      console.error("Unable to create day");
+    }
+  };
+
   return (
     <div>
       <h1>{props.program.name}</h1>
@@ -39,10 +54,16 @@ export function ProgramShow(props) {
             </div>
           ))
         ) : (
-          <p>No days in the program</p>
+          <div>
+            <p>Currently 0 days in the program.</p>
+            <p>Lets add some!</p>
+          </div>
         )}
       </div>
-      <button>Create New Day in Program</button>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="name" />
+        <button type="submit">Create New Day in Program</button>
+      </form>
     </div>
   );
 }
