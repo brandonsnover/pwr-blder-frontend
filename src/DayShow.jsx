@@ -4,6 +4,7 @@ export function DayShow(props) {
     <div>
       <h1>Day: {props.day.name}</h1>
       <h2>Exercises</h2>
+      <button onClick={() => props.onShowModal()}>Add an exercise</button>
       <div>
         {props.day.exercises && props.day.exercises.length > 0 ? (
           props.day.exercises.map((exercise) => (
