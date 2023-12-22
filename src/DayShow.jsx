@@ -1,14 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 
-/* eslint-disable react/prop-types */
 export function DayShow(props) {
+  const storedDayId = localStorage.getItem("dayId");
   useEffect(() => {
-    const storedDayId = localStorage.getItem("dayId");
-
     if (storedDayId) {
       props.onShowDay(storedDayId);
     }
-  }, [props.day]);
+  }, []);
 
   return (
     <div>

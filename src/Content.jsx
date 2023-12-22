@@ -38,6 +38,7 @@ export function Content() {
   };
 
   const handleShowDay = (id) => {
+    localStorage.removeItem("dayId");
     axios.get(`http://localhost:3000/days/${id}.json`).then((response) => {
       console.log(response.data);
       setDay(response.data);
@@ -60,9 +61,11 @@ export function Content() {
   };
 
   const handleCreateDay = (params) => {
+    localStorage.removeItem("dayId");
     axios.post("http://localhost:3000/days.json", params).then((response) => {
       console.log(response.data);
       setDay(response.data);
+      localStorage.setItem("dayId", response.data.id);
     });
   };
 
@@ -70,6 +73,25 @@ export function Content() {
     axios.post("http://localhost:3000/exercise_days.json", params).then((response) => {
       console.log(response.data);
       setIsModalVisible(false);
+      window.location.reload();
+    });
+  };
+
+  const handleDestoryProgram = (program) => {
+    axios.delete(`http://localhost:3000/programs/${program.id}.json`).then((response) => {
+      console.log(response);
+      setPrograms(programs.filter((p) => p.id !== program.id));
+    });
+  };
+
+  const handleDestroyDay = (dayToDelete) => {
+    axios.delete(`http://localhost:3000/days/${dayToDelete.id}.json`).then((response) => {
+      console.log(response);
+      setProgram((prevProgram) => {
+        const updatedProgram = { ...prevProgram };
+        updatedProgram.days = updatedProgram.days.filter((day) => day.id !== dayToDelete.id);
+        return updatedProgram;
+      });
     });
   };
 
@@ -81,12 +103,24 @@ export function Content() {
         <Route
           path="/"
           element={
-            <ProgramIndex programs={programs} onShowProgram={handleShowProgram} onCreateProgram={handleCreateProgram} />
+            <ProgramIndex
+              programs={programs}
+              onShowProgram={handleShowProgram}
+              onCreateProgram={handleCreateProgram}
+              onDestroyProgram={handleDestoryProgram}
+            />
           }
         />
         <Route
           path="/program"
-          element={<ProgramShow program={program} onShowDay={handleShowDay} onCreateDay={handleCreateDay} />}
+          element={
+            <ProgramShow
+              program={program}
+              onShowDay={handleShowDay}
+              onCreateDay={handleCreateDay}
+              onDestroyDay={handleDestroyDay}
+            />
+          }
         />
         <Route path="/day" element={<DayShow day={day} onShowDay={handleShowDay} onShowModal={handleModalShow} />} />
         <Route path="/exercises" element={<ExerciseIndex exercises={exercises} />} />

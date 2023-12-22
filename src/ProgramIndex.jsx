@@ -18,7 +18,7 @@ export function ProgramIndex(props) {
     const params = new FormData(event.target);
     props.onCreateProgram(params);
     event.target.reset();
-    window.location.href = "/program";
+    window.location.reload();
   };
 
   return (
@@ -30,6 +30,7 @@ export function ProgramIndex(props) {
             <h2>{program.name}</h2>
             <p>This currently is a {program.days.length} day program</p>
             <button onClick={() => handleShowAndNavigate(program.id)}>Go to Program</button>
+            <button onClick={() => props.onDestroyProgram(program)}>Delete This Program</button>
             <div>
               {program.days && program.days.length > 0 ? (
                 program.days.map((day) => (
