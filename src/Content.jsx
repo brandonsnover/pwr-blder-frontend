@@ -11,7 +11,7 @@ import { ExerciseAdd } from "./ExerciseAdd";
 export function Content() {
   const [programs, setPrograms] = useState([]);
   const [program, setProgram] = useState({});
-  const [day, setDay] = useState({});
+  const [day, setDay] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [exercises, setExercises] = useState([]);
 
@@ -37,12 +37,12 @@ export function Content() {
     });
   };
 
-  const handleShowDay = (id) => {
-    localStorage.removeItem("dayId");
-    axios.get(`http://localhost:3000/days/${id}.json`).then((response) => {
+  const handleShowDay = (params) => {
+    // localStorage.removeItem("dayId");
+    axios.get(`http://localhost:3000/exercise_days.json`, { params }).then((response) => {
       console.log(response.data);
       setDay(response.data);
-      localStorage.setItem("dayId", id);
+      // localStorage.setItem("dayId", id);
     });
   };
 
@@ -95,6 +95,13 @@ export function Content() {
     });
   };
 
+  const handleDestroyExerciseDay = (id) => {
+    axios.delete(`http://localhost:3000/exercise_days/${id}.json`).then((response) => {
+      console.log(response.data);
+      window.location.reload();
+    });
+  };
+
   useEffect(handleIndexPrograms, []);
   useEffect(handleIndexExercises, []);
   return (
@@ -122,7 +129,17 @@ export function Content() {
             />
           }
         />
-        <Route path="/day" element={<DayShow day={day} onShowDay={handleShowDay} onShowModal={handleModalShow} />} />
+        <Route
+          path="/day"
+          element={
+            <DayShow
+              day={day}
+              onShowDay={handleShowDay}
+              onShowModal={handleModalShow}
+              onDestoryExerciseDay={handleDestroyExerciseDay}
+            />
+          }
+        />
         <Route path="/exercises" element={<ExerciseIndex exercises={exercises} />} />
       </Routes>
 
