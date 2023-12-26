@@ -38,11 +38,11 @@ export function Content() {
   };
 
   const handleShowDay = (params) => {
-    // localStorage.removeItem("dayId");
+    localStorage.removeItem("dayId");
     axios.get(`http://localhost:3000/exercise_days.json`, { params }).then((response) => {
       console.log(response.data);
       setDay(response.data);
-      // localStorage.setItem("dayId", id);
+      localStorage.setItem("dayId", params.day_id);
     });
   };
 

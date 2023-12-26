@@ -9,24 +9,21 @@ export function Header() {
               <nav className="main-nav">
                 {/* logo  */}
                 <a href="index.html" className="logo">
-                  <h1>Villa</h1>
+                  <h1>PwrBldr</h1>
                 </a>
                 {/* logo end  */}
                 {/* menu start  */}
                 <ul className="nav">
                   <li>
-                    <a href="index.html" className="active">
-                      Home
+                    <a href="/" className="active">
+                      My Programs
                     </a>
                   </li>
                   <li>
-                    <a href="properties.html">Properties</a>
+                    <a href="/exercises">Exercise Index</a>
                   </li>
                   <li>
-                    <a href="property-details.html">Property Details</a>
-                  </li>
-                  <li>
-                    <a href="contact.html">Contact Us</a>
+                    <a href="contact.html">About Us</a>
                   </li>
                   <li>
                     <a href="#">
