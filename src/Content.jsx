@@ -190,6 +190,7 @@ export function Content() {
               onShowDay={handleShowDay}
               onShowModal={handleModalShow}
               onDestoryExerciseDay={handleDestroyExerciseDay}
+              onShowExercise={handleShowExercise}
             />
           }
         />

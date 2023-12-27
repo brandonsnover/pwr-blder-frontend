@@ -51,7 +51,7 @@ export function ProgramShow(props) {
                         day.exercises.map((exercise) => (
                           <div key={exercise.id}>
                             <span className="category">{exercise.name}</span>
-                            <h6>something</h6>
+                            <h6>{exercise.tags[0].name}</h6>
                             <ul>
                               <li>
                                 Recomended Volume: <span>{exercise.volume}</span>

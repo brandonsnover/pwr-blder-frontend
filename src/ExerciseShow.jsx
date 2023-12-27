@@ -21,7 +21,11 @@ export function ExerciseShow(props) {
                 <img src={props.exercise.img_url} alt="" />
               </div>
               <div className="main-content">
-                <span className="category">{props.exercise.tags[0].name}</span>
+                {props.exercise && props.exercise.tags && props.exercise.tags.length > 0 ? (
+                  <span className="category">{props.exercise.tags[0].name}</span>
+                ) : (
+                  <p>null</p>
+                )}
                 <h3>{props.exercise.short_description}</h3>
                 <h4>{props.exercise.long_description}</h4>
               </div>

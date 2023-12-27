@@ -47,8 +47,8 @@ export function DayShow(props) {
                     <a href="property-details.html">
                       <img src={day.exercise.img_url} alt="" />
                     </a>
-                    <span className="category">Tag Here</span>
-                    <h6>something</h6>
+                    <span className="category">{day.exercise.tags[0].name}</span>
+                    <h6>{day.exercise.tags[1].name}</h6>
                     <h2>{day.exercise.name}</h2>
                     <ul>
                       <li>
@@ -59,7 +59,9 @@ export function DayShow(props) {
                       </li>
                     </ul>
                     <div className="main-button">
-                      <a href="property-details.html">More info</a>
+                      <button onClick={() => props.onShowExercise(day.exercise.id)} className="btn btn-secondary">
+                        More info
+                      </button>
                     </div>
                     <div className="main-button m-1">
                       <button className="btn btn-secondary" onClick={() => props.onDestoryExerciseDay(day.id)}>
