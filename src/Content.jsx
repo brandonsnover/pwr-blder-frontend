@@ -10,6 +10,7 @@ import { ExerciseAdd } from "./ExerciseAdd";
 import { SignUp } from "./SignUp";
 import { ExerciseShow } from "./ExerciseShow";
 import { useNavigate } from "react-router-dom";
+import { Login } from "./Login";
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
@@ -197,6 +198,7 @@ export function Content() {
           element={<ExerciseIndex onShowExercise={handleShowExercise} exercises={exercises} />}
         />
         <Route path="/exercisedetails" element={<ExerciseShow exercise={exercise} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
       </Routes>
 
       <Modal show={isModalVisible} onClose={handleModalClose}>

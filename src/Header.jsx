@@ -31,11 +31,17 @@ export function Header() {
                   <li>
                     <a href="/exercises">Exercise Index</a>
                   </li>
-                  <li>
-                    <a onClick={handleClick} href="/">
-                      Logout
-                    </a>
-                  </li>
+                  {localStorage.jwt === undefined ? (
+                    <li>
+                      <a href="/login">Login</a>
+                    </li>
+                  ) : (
+                    <li>
+                      <a onClick={handleClick} href="/">
+                        Logout
+                      </a>
+                    </li>
+                  )}
                   <li>
                     <a href="#">
                       <i className="fa fa-calendar"></i> Why It Works
