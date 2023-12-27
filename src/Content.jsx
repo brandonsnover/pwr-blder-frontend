@@ -7,6 +7,14 @@ import { DayShow } from "./DayShow";
 import { Modal } from "./Modal";
 import { ExerciseIndex } from "./ExerciseIndex";
 import { ExerciseAdd } from "./ExerciseAdd";
+import { Login } from "./Login";
+import { ExerciseShow } from "./ExerciseShow";
+import { useNavigate } from "react-router-dom";
+
+const jwt = localStorage.getItem("jwt");
+if (jwt) {
+  axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
+}
 
 export function Content() {
   const [programs, setPrograms] = useState([]);
@@ -14,6 +22,9 @@ export function Content() {
   const [day, setDay] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [exercises, setExercises] = useState([]);
+  const [errors, setErrors] = useState([]);
+  const [exercise, setExercise] = useState({});
+  const navigate = useNavigate();
 
   const handleModalShow = () => {
     setIsModalVisible(true);
@@ -102,22 +113,57 @@ export function Content() {
     });
   };
 
+  const handleLogin = (params) => {
+    console.log("submitting login form");
+    setErrors([]);
+    axios
+      .post("http://localhost:3000/sessions.json", params)
+      .then((response) => {
+        console.log(response.data);
+        axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+        localStorage.setItem("jwt", response.data.jwt);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.response);
+        setErrors(["Invalid email or password"]);
+      });
+  };
+
+  const handleShowExercise = (id) => {
+    axios.get(`http://localhost:3000/exercises/${id}.json`).then((response) => {
+      console.log(response.data);
+      setExercise(response.data);
+      navigate(`/exercisedetails`);
+    });
+  };
+
+  let homePage;
+  if (localStorage.jwt === undefined) {
+    homePage = (
+      <div>
+        <Login handleSubmit={handleLogin} errors={errors} />
+      </div>
+    );
+  } else {
+    homePage = (
+      <div>
+        <ProgramIndex
+          programs={programs}
+          onShowProgram={handleShowProgram}
+          onCreateProgram={handleCreateProgram}
+          onDestroyProgram={handleDestoryProgram}
+        />
+      </div>
+    );
+  }
+
   useEffect(handleIndexPrograms, []);
   useEffect(handleIndexExercises, []);
   return (
     <div>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ProgramIndex
-              programs={programs}
-              onShowProgram={handleShowProgram}
-              onCreateProgram={handleCreateProgram}
-              onDestroyProgram={handleDestoryProgram}
-            />
-          }
-        />
+        <Route path="/" element={homePage} />
         <Route
           path="/program"
           element={
@@ -140,7 +186,11 @@ export function Content() {
             />
           }
         />
-        <Route path="/exercises" element={<ExerciseIndex exercises={exercises} />} />
+        <Route
+          path="/exercises"
+          element={<ExerciseIndex onShowExercise={handleShowExercise} exercises={exercises} />}
+        />
+        <Route path="/exercisedetails" element={<ExerciseShow exercise={exercise} />} />
       </Routes>
 
       <Modal show={isModalVisible} onClose={handleModalClose}>

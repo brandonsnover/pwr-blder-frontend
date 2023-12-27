@@ -24,7 +24,9 @@ export function ExerciseIndex(props) {
                     </li>
                   </ul>
                   <div className="main-button">
-                    <a href="property-details.html">More info</a>
+                    <button onClick={() => props.onShowExercise(exercise.id)} className="btn btn-secondary">
+                      More info
+                    </button>
                   </div>
                 </div>
               </div>

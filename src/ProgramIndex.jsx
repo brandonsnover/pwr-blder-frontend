@@ -23,7 +23,7 @@ export function ProgramIndex(props) {
 
   return (
     <div>
-      <h1 className="text-center">All Programs</h1>
+      <h1 className="text-center">Your Programs</h1>
       <div className="properties section">
         <div className="container">
           <div className="row">
