@@ -18,25 +18,12 @@ export function ExerciseShow(props) {
           <div className="row">
             <div className="col-lg-8">
               <div className="main-image">
-                <img src="assets/images/single-property.jpg" alt="" />
+                <img src={props.exercise.img_url} alt="" />
               </div>
               <div className="main-content">
-                <span className="category">Apparment</span>
-                <h4>{props.exercise.short_description}</h4>
-                <p>
-                  Get <strong>the best villa agency</strong> HTML CSS Bootstrap Template for your company website.
-                  TemplateMo provides you the{" "}
-                  <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">
-                    best free CSS templates
-                  </a>{" "}
-                  in the world. Please tell your friends about it. Thank you. Cloud bread kogi bitters pitchfork
-                  shoreditch tumblr yr succulents single-origin coffee schlitz enamel pin you probably haven't heard of
-                  them ugh hella.
-                  <br></br>When you look for free CSS templates, you can simply type TemplateMo in any search engine
-                  website. In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc.
-                  Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine
-                  neutra cardigan hoodie pop-up.
-                </p>
+                <span className="category">{props.exercise.tags[0].name}</span>
+                <h3>{props.exercise.short_description}</h3>
+                <h4>{props.exercise.long_description}</h4>
               </div>
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
@@ -49,7 +36,7 @@ export function ExerciseShow(props) {
                       aria-expanded="true"
                       aria-controls="collapseOne"
                     >
-                      Best useful links ?
+                      What is a compound vs. accessory exercise ?
                     </button>
                   </h2>
                   <div
@@ -59,10 +46,10 @@ export function ExerciseShow(props) {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor
-                      kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice,
-                      chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Compound exercises involve the movement of multiple joints and engage multiple muscle groups
+                      simultaneously. While accessories exercises target specific muscle groups or assist in improving
+                      the performance of compound exercises, they are often considered supplemental to the main compound
+                      movements.{" "}
                     </div>
                   </div>
                 </div>
@@ -76,7 +63,7 @@ export function ExerciseShow(props) {
                       aria-expanded="false"
                       aria-controls="collapseTwo"
                     >
-                      How does this work ?
+                      Why is this Important ?
                     </button>
                   </h2>
                   <div
@@ -86,10 +73,9 @@ export function ExerciseShow(props) {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor
-                      kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice,
-                      chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Compound Exercises: Engage multiple muscle groups simultaneously, promoting overall muscle
+                      development. Accessory Exercises: Target specific muscles that might not be fully activated during
+                      compound movements, addressing muscle imbalances and ensuring comprehensive development.
                     </div>
                   </div>
                 </div>
@@ -103,7 +89,7 @@ export function ExerciseShow(props) {
                       aria-expanded="false"
                       aria-controls="collapseThree"
                     >
-                      Why is Villa the best ?
+                      Break through Plateus !
                     </button>
                   </h2>
                   <div
@@ -113,10 +99,9 @@ export function ExerciseShow(props) {
                     data-bs-parent="#accordionExample"
                   >
                     <div className="accordion-body">
-                      Dolor <strong>almesit amet</strong>, consectetur adipiscing elit, sed doesn't eiusmod tempor
-                      kinfolk tonx seitan crucifix 3 wolf moon bicycle rights keffiyeh snackwave wolf same vice,
-                      chillwave vexillologist incididunt ut labore consectetur <code>adipiscing</code> elit, sed do
-                      eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Compound Exercises: Provide a basis for progressive overload, crucial for continued strength
+                      gains. Accessory Exercises: Introduce variety to workouts, prevent plateaus, and address specific
+                      weaknesses that may hinder progress.
                     </div>
                   </div>
                 </div>
@@ -126,7 +111,11 @@ export function ExerciseShow(props) {
               <div className="info-table">
                 <ul>
                   <li>
-                    <img src="assets/images/info-icon-01.png" alt="" style={{ maxWidth: "52px" }} />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/6016/6016314.png"
+                      alt=""
+                      style={{ maxWidth: "52px" }}
+                    />
                     <h4>
                       450 m2
                       <br />
@@ -134,7 +123,11 @@ export function ExerciseShow(props) {
                     </h4>
                   </li>
                   <li>
-                    <img src="assets/images/info-icon-02.png" alt="" style={{ maxWidth: "52px" }} />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/6016/6016314.png"
+                      alt=""
+                      style={{ maxWidth: "52px" }}
+                    />
                     <h4>
                       Contract
                       <br />
@@ -142,7 +135,11 @@ export function ExerciseShow(props) {
                     </h4>
                   </li>
                   <li>
-                    <img src="assets/images/info-icon-03.png" alt="" style={{ maxWidth: "52px" }} />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/6016/6016314.png"
+                      alt=""
+                      style={{ maxWidth: "52px" }}
+                    />
                     <h4>
                       Payment
                       <br />
@@ -150,7 +147,11 @@ export function ExerciseShow(props) {
                     </h4>
                   </li>
                   <li>
-                    <img src="assets/images/info-icon-04.png" alt="" style={{ maxWidth: "52px" }} />
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/6016/6016314.png"
+                      alt=""
+                      style={{ maxWidth: "52px" }}
+                    />
                     <h4>
                       Safety
                       <br />

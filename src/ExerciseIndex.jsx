@@ -2,7 +2,7 @@
 export function ExerciseIndex(props) {
   return (
     <div>
-      <h1>Exercise List</h1>
+      <h1 className="text-center">Exercise List</h1>
       <div className="properties section">
         <div className="container">
           <div className="row">
@@ -10,10 +10,10 @@ export function ExerciseIndex(props) {
               <div className="col-lg-4 col-md-6" key={exercise.id}>
                 <div className="item">
                   <a href="property-details.html">
-                    <img src="assets/images/property-01.jpg" alt="" />
+                    <img src={exercise.img_url} alt="" />
                   </a>
-                  <span className="category">Luxury Villa</span>
-                  <h6>$2.264.000</h6>
+                  <span className="category">{exercise.tags[0].name}</span>
+                  <h6>{exercise.tags[1].name}</h6>
                   <h2>{exercise.name}</h2>
                   <ul>
                     <li>
