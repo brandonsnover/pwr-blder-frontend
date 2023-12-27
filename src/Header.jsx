@@ -1,4 +1,13 @@
+import axios from "axios";
+
 export function Header() {
+  const handleClick = (event) => {
+    event.preventDefault();
+    delete axios.defaults.headers.common["Authorization"];
+    localStorage.removeItem("jwt");
+    window.location.href = "/";
+  };
+
   return (
     <>
       {/* header */}
@@ -23,7 +32,9 @@ export function Header() {
                     <a href="/exercises">Exercise Index</a>
                   </li>
                   <li>
-                    <a href="contact.html">Another Link</a>
+                    <a onClick={handleClick} href="/">
+                      Logout
+                    </a>
                   </li>
                   <li>
                     <a href="#">

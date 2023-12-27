@@ -7,7 +7,7 @@ import { DayShow } from "./DayShow";
 import { Modal } from "./Modal";
 import { ExerciseIndex } from "./ExerciseIndex";
 import { ExerciseAdd } from "./ExerciseAdd";
-import { Login } from "./Login";
+import { SignUp } from "./SignUp";
 import { ExerciseShow } from "./ExerciseShow";
 import { useNavigate } from "react-router-dom";
 
@@ -138,11 +138,17 @@ export function Content() {
     });
   };
 
+  const handleSignUp = (params) => {
+    axios.post("http://localhost:3000/users.json", params).then((response) => {
+      console.log(response.data);
+    });
+  };
+
   let homePage;
   if (localStorage.jwt === undefined) {
     homePage = (
       <div>
-        <Login handleSubmit={handleLogin} errors={errors} />
+        <SignUp onSignUp={handleSignUp} handleSubmit={handleLogin} errors={errors} />
       </div>
     );
   } else {
