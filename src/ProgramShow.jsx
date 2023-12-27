@@ -79,19 +79,27 @@ export function ProgramShow(props) {
         </div>
       </div>
       <form onSubmit={handleSubmit} className="my-4">
-        <div className="dropdown">
-          Select Day Type:
-          <select name="selectedName" className="ml-2">
-            <option value="Full Body">Full Body</option>
-            <option value="Upper Body">Upper Body</option>
-            <option value="Lower Body">Lower Body</option>
-            <option value="Push">Push</option>
-            <option value="Pull">Pull</option>
-            <option value="Legs">Legs</option>
-          </select>
+        <div className="row">
+          <div className="col-md-3">
+            {/* 1/4 width column for the form group */}
+            <div className="form-group">
+              <label htmlFor="selectedName">
+                <strong>Select Day Type:</strong>
+              </label>
+              <select name="selectedName" className="form-control ml-2">
+                <option value="Full Body">Full Body</option>
+                <option value="Upper Body">Upper Body</option>
+                <option value="Lower Body">Lower Body</option>
+                <option value="Push">Push</option>
+                <option value="Pull">Pull</option>
+                <option value="Legs">Legs</option>
+              </select>
+            </div>
+          </div>
+          <div className="col-md-9">{/* Placeholder for the other 3/4 of the screen */}</div>
         </div>
         <div>
-          <button type="submit" className="btn btn-secondary">
+          <button type="submit" className="btn btn-secondary m-2">
             Create New Day in {props.program.name}
           </button>
         </div>

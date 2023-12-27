@@ -23,11 +23,11 @@ export function Header() {
                     <a href="/exercises">Exercise Index</a>
                   </li>
                   <li>
-                    <a href="contact.html">About Us</a>
+                    <a href="contact.html">Another Link</a>
                   </li>
                   <li>
                     <a href="#">
-                      <i className="fa fa-calendar"></i> Schedule a visit
+                      <i className="fa fa-calendar"></i> Why It Works
                     </a>
                   </li>
                 </ul>

@@ -45,10 +45,10 @@ export function DayShow(props) {
                 <div className="col-lg-6 mb-4" key={day.id}>
                   <div className="item">
                     <a href="property-details.html">
-                      <img src="assets/images/property-01.jpg" alt="" />
+                      <img src={day.exercise.img_url} alt="" />
                     </a>
-                    <span className="category">Luxury Villa</span>
-                    <h6>$2.264.000</h6>
+                    <span className="category">Tag Here</span>
+                    <h6>something</h6>
                     <h2>{day.exercise.name}</h2>
                     <ul>
                       <li>
