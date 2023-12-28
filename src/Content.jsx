@@ -183,7 +183,7 @@ export function Content() {
           }
         />
         <Route
-          path="/day"
+          path="/day/:id"
           element={
             <DayShow
               day={day}

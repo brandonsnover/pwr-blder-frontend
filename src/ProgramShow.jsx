@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,15 +7,9 @@ import { useParams } from "react-router-dom";
 export function ProgramShow(props) {
   const navigate = useNavigate();
   const pageparams = useParams();
-  console.log("pageparams", pageparams);
 
-  const goToDay = () => {
-    navigate(`/day`);
-  };
-
-  const handleShowAndNavigate = (id) => {
-    props.onShowDay({ day_id: id });
-    goToDay();
+  const goToDay = (id) => {
+    navigate(`/day/${id}`);
   };
 
   useEffect(() => {
@@ -48,7 +43,7 @@ export function ProgramShow(props) {
                 <div className="col-lg-4 col-md-6" key={day.id}>
                   <div className="item">
                     <h2>{day.name} Day</h2>
-                    <button className="btn btn-secondary m-1" onClick={() => handleShowAndNavigate(day.id)}>
+                    <button className="btn btn-secondary m-1" onClick={() => goToDay(day.id)}>
                       Edit Day
                     </button>
                     <button className="btn btn-secondary m-1" onClick={() => props.onDestroyDay(day)}>

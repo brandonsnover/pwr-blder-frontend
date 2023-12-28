@@ -1,35 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export function DayShow(props) {
-  const [dayName, setDayName] = useState("");
-  const storedDayId = localStorage.getItem("dayId");
-
-  const handleEmptyDay = (id) => {
-    axios.get(`http://localhost:3000/days/${id}.json`).then((response) => {
-      console.log(response.data);
-      setDayName(response.data.name);
-    });
-  };
+  const pageparams = useParams();
 
   useEffect(() => {
-    if (storedDayId) {
-      props.onShowDay({ day_id: storedDayId });
-    }
+    props.onShowDay({ day_id: pageparams.id });
   }, []);
-
-  useEffect(() => {
-    if (props.day && props.day.length === 0) {
-      handleEmptyDay(storedDayId);
-    }
-  }, [props.day]);
 
   return (
     <div>
+      <button onClick={() => console.log(props.day)}>day check</button>
       <div className="text-center">
-        {props.day.length > 0 && props.day[0].day.name ? <h1>{props.day[0].day.name} Day</h1> : <h1>{dayName} Day</h1>}
+        {props.day.length > 0 && props.day[0].day.name ? <h1>{props.day[0].day.name} Day</h1> : <h1>Day</h1>}
       </div>
       <h2 className="text-center">Exercises</h2>
       <div className="text-center">
