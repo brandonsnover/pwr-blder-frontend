@@ -121,9 +121,9 @@ export function ExerciseShow(props) {
                       style={{ maxWidth: "52px" }}
                     />
                     <h4>
-                      450 m2
+                      Words
                       <br />
-                      <span>Total Flat Space</span>
+                      <span>Go Here</span>
                     </h4>
                   </li>
                   <li>
@@ -148,18 +148,6 @@ export function ExerciseShow(props) {
                       Payment
                       <br />
                       <span>Payment Process</span>
-                    </h4>
-                  </li>
-                  <li>
-                    <img
-                      src="https://cdn-icons-png.flaticon.com/512/6016/6016314.png"
-                      alt=""
-                      style={{ maxWidth: "52px" }}
-                    />
-                    <h4>
-                      Safety
-                      <br />
-                      <span>24/7 Under Control</span>
                     </h4>
                   </li>
                 </ul>

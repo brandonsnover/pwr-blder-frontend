@@ -12,13 +12,12 @@ export function DayShow(props) {
 
   return (
     <div>
-      <button onClick={() => console.log(props.day)}>day check</button>
-      <div className="text-center">
+      <div className="text-center mt-3">
         {props.day.length > 0 && props.day[0].day.name ? <h1>{props.day[0].day.name} Day</h1> : <h1>Day</h1>}
       </div>
       <h2 className="text-center">Exercises</h2>
       <div className="text-center">
-        <button className="btn btn-secondary" onClick={() => props.onShowModal()}>
+        <button className="btn btn-secondary mt-3" onClick={() => props.onShowModal()}>
           Add an exercise
         </button>
       </div>
@@ -57,7 +56,7 @@ export function DayShow(props) {
                 </div>
               ))
             ) : (
-              <h1>Day currently empty</h1>
+              <h1 className="text-center">Day currently empty</h1>
             )}
           </div>
         </div>

@@ -25,7 +25,7 @@ export function ProgramShow(props) {
       const params = { name, program_id };
       props.onCreateDay(params);
       event.target.reset();
-      navigate(`/day`);
+      window.location.reload();
     } else {
       console.error("Unable to create day");
       console.log(props.program_id);
@@ -74,8 +74,8 @@ export function ProgramShow(props) {
               ))
             ) : (
               <div>
-                <p>Currently 0 days in the program.</p>
-                <p>Lets add some!</p>
+                <h1 className="text-center">Currently 0 days in the program.</h1>
+                <h1 className="text-center">Lets add some!</h1>
               </div>
             )}
           </div>
@@ -90,12 +90,12 @@ export function ProgramShow(props) {
                 <strong>Select Day Type:</strong>
               </label>
               <select name="selectedName" className="form-control ml-2">
-                <option value="Full Body">Full Body</option>
                 <option value="Upper Body">Upper Body</option>
                 <option value="Lower Body">Lower Body</option>
                 <option value="Push">Push</option>
                 <option value="Pull">Pull</option>
                 <option value="Legs">Legs</option>
+                <option value="Full Body">Full Body</option>
               </select>
             </div>
           </div>
