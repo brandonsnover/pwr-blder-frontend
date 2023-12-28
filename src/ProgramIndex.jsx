@@ -4,13 +4,8 @@ import { useNavigate } from "react-router-dom";
 export function ProgramIndex(props) {
   const navigate = useNavigate();
 
-  const goToProgram = () => {
-    navigate(`/program`);
-  };
-
-  const handleShowAndNavigate = (id) => {
-    props.onShowProgram(id);
-    goToProgram();
+  const goToProgram = (id) => {
+    navigate(`/program/${id}`);
   };
 
   const handleSubmit = (event) => {
@@ -47,7 +42,7 @@ export function ProgramIndex(props) {
                   </div>
                   <ul></ul>
                   <div className="main-button">
-                    <button onClick={() => handleShowAndNavigate(program.id)} className="btn btn-secondary m-1">
+                    <button onClick={() => goToProgram(program.id)} className="btn btn-secondary m-1">
                       Go to Program
                     </button>
                     <button onClick={() => props.onDestroyProgram(program)} className="btn btn-secondary m-1">

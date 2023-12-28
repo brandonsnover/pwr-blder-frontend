@@ -157,7 +157,6 @@ export function Content() {
       <div>
         <ProgramIndex
           programs={programs}
-          onShowProgram={handleShowProgram}
           onCreateProgram={handleCreateProgram}
           onDestroyProgram={handleDestoryProgram}
         />
@@ -172,10 +171,11 @@ export function Content() {
       <Routes>
         <Route path="/" element={homePage} />
         <Route
-          path="/program"
+          path="/program/:id"
           element={
             <ProgramShow
               program={program}
+              onShowProgram={handleShowProgram}
               onShowDay={handleShowDay}
               onCreateDay={handleCreateDay}
               onDestroyDay={handleDestroyDay}

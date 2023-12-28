@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export function ProgramShow(props) {
   const navigate = useNavigate();
+  const pageparams = useParams();
+  console.log("pageparams", pageparams);
 
   const goToDay = () => {
     navigate(`/day`);
@@ -12,6 +16,10 @@ export function ProgramShow(props) {
     props.onShowDay({ day_id: id });
     goToDay();
   };
+
+  useEffect(() => {
+    props.onShowProgram(pageparams.id);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
