@@ -40,22 +40,22 @@ The application will be accessible at http://localhost:5173/.
 Folder Structure
 The project has the following folder structure:
 
-App.jsx: Main component rendering the application.
-Content.jsx: Component containing methods, handles routing, and renders the body.
-DayShow.jsx: Component to render an individual day in a program.
-ExerciseAdd.jsx: Component to add an exercise to a day.
-ExerciseIndex.jsx: Component to index all the exercises in the database.
-ExerciseShow.jsx: Component to give details of an individual exercise.
-Footer.jsx: Renders the footer for the page.
-Header.jsx: Component to render header for page containing links.
-index.css: Sets the styling for the background image.
-Login.jsx: Component to login a user.
-main.jsx: Top level component.
-Modal.css: Contains styling for the Modal.
-Modal.jsx: Component to render the Modal.
-ProgramIndex.jsx: Component to index all the programs for a user.
-ProgramShow.jsx: Component to render an individual program.
-SignUp.jsx: Component to signup a new user.
+- App.jsx: Main component rendering the application.
+- Content.jsx: Component containing methods, handles routing, and renders the body.
+- DayShow.jsx: Component to render an individual day in a program.
+- ExerciseAdd.jsx: Component to add an exercise to a day.
+- ExerciseIndex.jsx: Component to index all the exercises in the database.
+- ExerciseShow.jsx: Component to give details of an individual exercise.
+- Footer.jsx: Renders the footer for the page.
+- Header.jsx: Component to render header for page containing links.
+- index.css: Sets the styling for the background image.
+- Login.jsx: Component to login a user.
+- main.jsx: Top level component.
+- Modal.css: Contains styling for the Modal.
+- Modal.jsx: Component to render the Modal.
+- ProgramIndex.jsx: Component to index all the programs for a user.
+- ProgramShow.jsx: Component to render an individual program.
+- SignUp.jsx: Component to signup a new user.
 
 `...
 Dependencies
