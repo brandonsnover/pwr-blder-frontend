@@ -57,12 +57,11 @@ The project has the following folder structure:
 - ProgramShow.jsx: Component to render an individual program.
 - SignUp.jsx: Component to signup a new user.
 
-`...
-Dependencies
-React
-React Router
-Axios
-Bootstrap
+## Dependencies
+- React
+- React Router
+- Axios
+- Bootstrap
 
 Install additional dependencies using:
 
