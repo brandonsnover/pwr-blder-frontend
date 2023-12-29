@@ -47,6 +47,9 @@ export function ExerciseAdd(props) {
                       <li>
                         Type: <span>{exercise.tags[0].name}</span>
                       </li>
+                      <li>
+                        Body: <span>{exercise.tags[1].name}</span>
+                      </li>
                     </ul>
                     <button className="btn btn-secondary" onClick={() => props.onCreateExerciseDay(params)}>
                       Add this Exercise

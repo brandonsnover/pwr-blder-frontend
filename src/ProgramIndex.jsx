@@ -38,7 +38,7 @@ export function ProgramIndex(props) {
                           </div>
                         ))
                       ) : (
-                        <p>Nothing in program</p>
+                        <h4>Nothing in program</h4>
                       )}
                     </div>
                     <div>
@@ -47,7 +47,7 @@ export function ProgramIndex(props) {
                           This program covers the following: {program.tag_list.map((tag) => tag.name).join(", ")}
                         </h6>
                       ) : (
-                        <p>no tags</p>
+                        <h6>No Muscles Covered: Add some Days and/or Exercises!</h6>
                       )}
                     </div>
                     <ul></ul>
@@ -86,7 +86,7 @@ export function ProgramIndex(props) {
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="programName" className="form-label">
-                  Program Name
+                  Enter New Program Name
                 </label>
                 <input type="text" className="form-control " id="programName" name="name" />
               </div>

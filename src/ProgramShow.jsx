@@ -66,7 +66,7 @@ export function ProgramShow(props) {
                           </div>
                         ))
                       ) : (
-                        <p>Nothing in Day</p>
+                        <h3>No Exercises in this Day hit Edit Day to add some!</h3>
                       )}
                     </div>
                   </div>
