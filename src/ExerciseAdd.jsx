@@ -45,10 +45,10 @@ export function ExerciseAdd(props) {
                         Muscle Targeted: <span>{exercise.short_description}</span>
                       </li>
                       <li>
-                        Type: <span>{exercise.tags[0].name}</span>
+                        Type: <span>{exercise.tags && exercise.tags[0] && exercise.tags[0].name}</span>
                       </li>
                       <li>
-                        Body: <span>{exercise.tags[1].name}</span>
+                        Body: <span>{exercise.tags && exercise.tags[1] && exercise.tags[1].name}</span>
                       </li>
                     </ul>
                     <button className="btn btn-secondary" onClick={() => props.onCreateExerciseDay(params)}>
