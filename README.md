@@ -32,9 +32,9 @@ This is the frontend for pwr-blder-frontend, a React application that interacts 
 
 **Start the Development Server:**
 
-    ```bash
-    npm run dev
-    ```
+```bash
+npm run dev
+```
 The application will be accessible at http://localhost:5173/.
 
 Folder Structure
