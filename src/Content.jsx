@@ -85,7 +85,6 @@ export function Content() {
     axios.post("https://pwr-blder-api.onrender.com/exercise_days.json", params).then((response) => {
       console.log(response.data);
       setIsModalVisible(false);
-      window.location.reload();
     });
   };
 
