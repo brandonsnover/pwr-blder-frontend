@@ -8,7 +8,7 @@ export function DayShow(props) {
 
   useEffect(() => {
     props.onShowDay({ day_id: pageparams.id });
-  }, [props.day]);
+  }, []);
 
   return (
     <div>

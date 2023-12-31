@@ -8,3 +8,45 @@ body {
   background-repeat: repeat;
   background-position: center;
 }
+
+.burger-menu {
+  display: none;
+  position: fixed;
+  top: 20;
+  right: 0;
+  width: 25%;
+  height: 250px;
+  background: white;
+  z-index: 2000;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.burger-menu.open {
+  display: block;
+}
+
+.burger-menu ul {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  position: absolute;
+  top: 50%; /* Adjusted to start from the middle of the page */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%; /* Adjusted to 80% width */
+  box-sizing: border-box;
+  background: #fff; /* Added a white background */
+  border-radius: 8px; /* Added border-radius for a rounded appearance */
+}
+
+.burger-menu li {
+  margin-bottom: 10px;
+}
+
+.burger-menu a {
+  color: #000; /* Adjusted text color to black */
+  text-decoration: none;
+  font-size: 20px;
+}

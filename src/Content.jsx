@@ -36,14 +36,14 @@ export function Content() {
   };
 
   const handleIndexPrograms = () => {
-    axios.get("https://pwr-blder-api.onrender.com/programs.json").then((response) => {
+    axios.get("http://localhost:3000/programs.json").then((response) => {
       console.log(response.data);
       setPrograms(response.data);
     });
   };
 
   const handleShowProgram = (id) => {
-    axios.get(`https://pwr-blder-api.onrender.com/programs/${id}.json`).then((response) => {
+    axios.get(`http://localhost:3000/programs/${id}.json`).then((response) => {
       console.log(response.data);
       setProgram(response.data);
     });
@@ -51,7 +51,7 @@ export function Content() {
 
   const handleShowDay = (params) => {
     localStorage.removeItem("dayId");
-    axios.get(`https://pwr-blder-api.onrender.com/exercise_days.json`, { params }).then((response) => {
+    axios.get(`http://localhost:3000/exercise_days.json`, { params }).then((response) => {
       console.log(response.data);
       setDay(response.data);
       localStorage.setItem("dayId", params.day_id);
@@ -59,14 +59,14 @@ export function Content() {
   };
 
   const handleIndexExercises = () => {
-    axios.get("https://pwr-blder-api.onrender.com/exercises.json").then((response) => {
+    axios.get("http://localhost:3000/exercises.json").then((response) => {
       console.log(response.data);
       setExercises(response.data);
     });
   };
 
   const handleCreateProgram = (params) => {
-    axios.post("https://pwr-blder-api.onrender.com/programs.json", params).then((response) => {
+    axios.post("http://localhost:3000/programs.json", params).then((response) => {
       console.log(response.data);
       setProgram(response.data);
     });
@@ -74,7 +74,7 @@ export function Content() {
 
   const handleCreateDay = (params) => {
     localStorage.removeItem("dayId");
-    axios.post("https://pwr-blder-api.onrender.com/days.json", params).then((response) => {
+    axios.post("http://localhost:3000/days.json", params).then((response) => {
       console.log(response.data);
       setDay(response.data);
       localStorage.setItem("dayId", response.data.id);
@@ -82,21 +82,22 @@ export function Content() {
   };
 
   const handleCreateExerciseDay = (params) => {
-    axios.post("https://pwr-blder-api.onrender.com/exercise_days.json", params).then((response) => {
+    axios.post("http://localhost:3000/exercise_days.json", params).then((response) => {
       console.log(response.data);
       setIsModalVisible(false);
+      window.location.reload();
     });
   };
 
   const handleDestoryProgram = (program) => {
-    axios.delete(`https://pwr-blder-api.onrender.com/programs/${program.id}.json`).then((response) => {
+    axios.delete(`http://localhost:3000/programs/${program.id}.json`).then((response) => {
       console.log(response);
       setPrograms(programs.filter((p) => p.id !== program.id));
     });
   };
 
   const handleDestroyDay = (dayToDelete) => {
-    axios.delete(`https://pwr-blder-api.onrender.com/days/${dayToDelete.id}.json`).then((response) => {
+    axios.delete(`http://localhost:3000/days/${dayToDelete.id}.json`).then((response) => {
       console.log(response);
       setProgram((prevProgram) => {
         const updatedProgram = { ...prevProgram };
@@ -107,7 +108,7 @@ export function Content() {
   };
 
   const handleDestroyExerciseDay = (id) => {
-    axios.delete(`https://pwr-blder-api.onrender.com/exercise_days/${id}.json`).then((response) => {
+    axios.delete(`http://localhost:3000/exercise_days/${id}.json`).then((response) => {
       console.log(response.data);
       window.location.reload();
     });
@@ -117,7 +118,7 @@ export function Content() {
     console.log("submitting login form");
     setErrors([]);
     axios
-      .post("https://pwr-blder-api.onrender.com/sessions.json", params)
+      .post("http://localhost:3000/sessions.json", params)
       .then((response) => {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
@@ -131,7 +132,7 @@ export function Content() {
   };
 
   const handleShowExercise = (id) => {
-    axios.get(`https://pwr-blder-api.onrender.com/exercises/${id}.json`).then((response) => {
+    axios.get(`http://localhost:3000/exercises/${id}.json`).then((response) => {
       console.log(response.data);
       setExercise(response.data);
       navigate(`/exercisedetails`);
@@ -139,7 +140,7 @@ export function Content() {
   };
 
   const handleSignUp = (params) => {
-    axios.post("https://pwr-blder-api.onrender.com/users.json", params).then((response) => {
+    axios.post("http://localhost:3000/users.json", params).then((response) => {
       console.log(response.data);
     });
   };
