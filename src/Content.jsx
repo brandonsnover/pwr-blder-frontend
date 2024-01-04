@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { useEffect, useState } from "react";
 import { ProgramIndex } from "./ProgramIndex";
 import axios from "axios";
@@ -17,8 +16,6 @@ const jwt = localStorage.getItem("jwt");
 if (jwt) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
 }
-axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://pwr-blder-api.onrender.com";
 
 export function Content() {
   const [programs, setPrograms] = useState([]);
@@ -39,14 +36,14 @@ export function Content() {
   };
 
   const handleIndexPrograms = () => {
-    axios.get("http://localhost:3000/programs.json").then((response) => {
+    axios.get("/programs.json").then((response) => {
       console.log(response.data);
       setPrograms(response.data);
     });
   };
 
   const handleShowProgram = (id) => {
-    axios.get(`http://localhost:3000/programs/${id}.json`).then((response) => {
+    axios.get(`/programs/${id}.json`).then((response) => {
       console.log(response.data);
       setProgram(response.data);
     });
@@ -54,7 +51,7 @@ export function Content() {
 
   const handleShowDay = (params) => {
     localStorage.removeItem("dayId");
-    axios.get(`http://localhost:3000/exercise_days.json`, { params }).then((response) => {
+    axios.get(`/exercise_days.json`, { params }).then((response) => {
       console.log(response.data);
       setDay(response.data);
       localStorage.setItem("dayId", params.day_id);
@@ -62,14 +59,14 @@ export function Content() {
   };
 
   const handleIndexExercises = () => {
-    axios.get("http://localhost:3000/exercises.json").then((response) => {
+    axios.get("/exercises.json").then((response) => {
       console.log(response.data);
       setExercises(response.data);
     });
   };
 
   const handleCreateProgram = (params) => {
-    axios.post("http://localhost:3000/programs.json", params).then((response) => {
+    axios.post("/programs.json", params).then((response) => {
       console.log(response.data);
       setProgram(response.data);
     });
@@ -77,7 +74,7 @@ export function Content() {
 
   const handleCreateDay = (params) => {
     localStorage.removeItem("dayId");
-    axios.post("http://localhost:3000/days.json", params).then((response) => {
+    axios.post("/days.json", params).then((response) => {
       console.log(response.data);
       setDay(response.data);
       localStorage.setItem("dayId", response.data.id);
@@ -85,7 +82,7 @@ export function Content() {
   };
 
   const handleCreateExerciseDay = (params) => {
-    axios.post("http://localhost:3000/exercise_days.json", params).then((response) => {
+    axios.post("/exercise_days.json", params).then((response) => {
       console.log(response.data);
       setIsModalVisible(false);
       window.location.reload();
@@ -93,14 +90,14 @@ export function Content() {
   };
 
   const handleDestoryProgram = (program) => {
-    axios.delete(`http://localhost:3000/programs/${program.id}.json`).then((response) => {
+    axios.delete(`/programs/${program.id}.json`).then((response) => {
       console.log(response);
       setPrograms(programs.filter((p) => p.id !== program.id));
     });
   };
 
   const handleDestroyDay = (dayToDelete) => {
-    axios.delete(`http://localhost:3000/days/${dayToDelete.id}.json`).then((response) => {
+    axios.delete(`/days/${dayToDelete.id}.json`).then((response) => {
       console.log(response);
       setProgram((prevProgram) => {
         const updatedProgram = { ...prevProgram };
@@ -111,7 +108,7 @@ export function Content() {
   };
 
   const handleDestroyExerciseDay = (id) => {
-    axios.delete(`http://localhost:3000/exercise_days/${id}.json`).then((response) => {
+    axios.delete(`/exercise_days/${id}.json`).then((response) => {
       console.log(response.data);
       window.location.reload();
     });
@@ -121,7 +118,7 @@ export function Content() {
     console.log("submitting login form");
     setErrors([]);
     axios
-      .post("http://localhost:3000/sessions.json", params)
+      .post("/sessions.json", params)
       .then((response) => {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
@@ -135,7 +132,7 @@ export function Content() {
   };
 
   const handleShowExercise = (id) => {
-    axios.get(`http://localhost:3000/exercises/${id}.json`).then((response) => {
+    axios.get(`/exercises/${id}.json`).then((response) => {
       console.log(response.data);
       setExercise(response.data);
       navigate(`/exercisedetails`);
@@ -143,7 +140,7 @@ export function Content() {
   };
 
   const handleSignUp = (params) => {
-    axios.post("http://localhost:3000/users.json", params).then((response) => {
+    axios.post("/users.json", params).then((response) => {
       console.log(response.data);
     });
   };
