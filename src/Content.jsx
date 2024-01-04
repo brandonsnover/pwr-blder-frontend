@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useEffect, useState } from "react";
 import { ProgramIndex } from "./ProgramIndex";
 import axios from "axios";
