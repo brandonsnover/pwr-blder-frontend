@@ -13,7 +13,7 @@ export function DayShow(props) {
   return (
     <div>
       <div className="text-center mt-3">
-        {props.day.length > 0 && props.day[0].day.name ? <h1>{props.day[0].day.name} Day</h1> : <h1>Day</h1>}
+        {props.day && props.day.length > 0 && props.day[0].day.name ? <h1>{props.day[0].day.name} Day</h1> : <h1>Day</h1>}
       </div>
       <h2 className="text-center">Exercises</h2>
       <div className="text-center">
